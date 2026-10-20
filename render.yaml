@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cricket-ai-streamer
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/status
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: SARVAM_API_KEY
+        sync: false
